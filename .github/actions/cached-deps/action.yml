@@ -4,7 +4,7 @@ inputs:
   caching:
     description: "Wheather to cache deps or not"
     required: true
-    default: 'true'
+    # default: 'true'
 runs:
   using: 'composite'
   steps:
