@@ -8,7 +8,7 @@ inputs:
 outputs:
   used-cache:
     description: wheather cache used or not
-    value: ${{ steps.install.outputs.cache_val }}
+    value: ${{ steps.set-output.outputs.cache_val }}
 runs:
   using: 'composite'
   steps:
@@ -25,4 +25,9 @@ runs:
       shell: bash
       run: |
         npm ci
+
+    - name: Set cache output
+      id: set-output
+      shell: bash
+      run: |
         echo "cache_val=${{ steps.cache.outputs.cache-hit }}" >> "$GITHUB_OUTPUT"
