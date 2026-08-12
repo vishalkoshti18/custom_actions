@@ -1,0 +1,19 @@
+name: 'Deploy to AWS S3 bucket'
+description: 'copying files to s3 bucket for static website hosting'
+inputs:
+  bucket:
+    description: "The name of the s3 bucket"
+    required: true
+  bucket-region:
+    description: "The region of the s3 bucket where it is hosted"
+    required: false
+    default: 'ap-south-1'
+  dist-folder:
+    description: 'The folder containing the deployable files'
+    required: true
+outputs:
+  website-url:
+    description: "The url of the deployed website via s3 bucket"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
